@@ -80,6 +80,6 @@ namespace SmartSchoolVSCode.WebAPI.Controllers
 
             return Ok(aluno);
         }
-    
+            
     }
 }
