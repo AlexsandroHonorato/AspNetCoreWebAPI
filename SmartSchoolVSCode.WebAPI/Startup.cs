@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,11 +28,13 @@ namespace SmartSchoolVSCode.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SmartContext>(context => context.UseSqlite(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<SmartContext>(context => context.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllers()
                     .AddNewtonsoftJson(
                         option => option.SerializerSettings.ReferenceLoopHandling 
                                = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());                   
 
             //services.AddSingleton<IRepository, Repository>(); 
             //Cria uma única instância do serviço qunado é solicitado pela primeira vez e reutiliza essa mesma instância
@@ -45,6 +48,7 @@ namespace SmartSchoolVSCode.WebAPI
             // de uma classe onde houver outras dependências, seja utilizada essa única intância pra todas, 
             //renovando somente nas requisioções subsequentes, mas mantendo essa obrigatoriedade
 
+        
          services.AddScoped<IRepository, Repository>();
 
         }
