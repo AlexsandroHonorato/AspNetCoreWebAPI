@@ -1,5 +1,5 @@
 using AutoMapper;
-using SmartSchoolVSCode.WebAPI.Dtos;
+using SmartSchoolVSCode.WebAPI.V1.Dtos;
 using SmartSchoolVSCode.WebAPI.Models;
 
 namespace SmartSchoolVSCode.WebAPI.Helpers

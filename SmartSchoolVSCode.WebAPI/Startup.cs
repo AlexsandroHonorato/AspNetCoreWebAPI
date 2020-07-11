@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,10 +54,54 @@ namespace SmartSchoolVSCode.WebAPI
         
          services.AddScoped<IRepository, Repository>();
 
+         services.AddVersionedApiExplorer(options => {
+
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+                })
+                .AddApiVersioning(options =>{
+                    options.AssumeDefaultVersionWhenUnspecified = true;
+                    options.DefaultApiVersion = new ApiVersion(1, 0);
+                    options.ReportApiVersions = true;
+                });
+
+        var apiProviderDescription = services.BuildServiceProvider()
+                                             .GetService<IApiVersionDescriptionProvider>();
+
+         services.AddSwaggerGen(options => {
+
+             foreach(var description in apiProviderDescription.ApiVersionDescriptions){
+
+                options.SwaggerDoc(description.GroupName,
+                new Microsoft.OpenApi.Models.OpenApiInfo(){
+                    Title = "SmartSchool API",
+                    Version = description.ApiVersion.ToString(),
+                    TermsOfService = new Uri("http://www.meustermosdeuso.com.br"), //Para criar uma página de termo de uso
+                    Description = "A descrição da minha API SmartShool",
+                    License = new Microsoft.OpenApi.Models.OpenApiLicense{
+                        Name = "SmartSchool License",
+                        Url = new Uri("http://minhalicesa.com.br")
+                    },
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact{
+                        Name = "Alexsandro Honorato",
+                        Email = "alexsandrohonorato@gmail.com"
+                    }
+                });
+             }
+
+             var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+             var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+
+             options.IncludeXmlComments(xmlCommentsFullPath);
+
+         });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app,
+                              IWebHostEnvironment env,
+                              IApiVersionDescriptionProvider apiVersionDescription)
         {
             if (env.IsDevelopment())
             {
@@ -64,6 +111,15 @@ namespace SmartSchoolVSCode.WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger()
+               .UseSwaggerUI(options => {
+                   foreach (var description in apiVersionDescription.ApiVersionDescriptions)
+                   {
+                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",description.GroupName.ToUpperInvariant());                 
+                   }    
+                    options.RoutePrefix = "";            
+                });
 
             app.UseAuthorization();
 

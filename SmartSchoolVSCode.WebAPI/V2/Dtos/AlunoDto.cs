@@ -1,6 +1,6 @@
 using System;
 
-namespace SmartSchoolVSCode.WebAPI.Dtos
+namespace SmartSchoolVSCode.WebAPI.V2.Dtos
 {
     public class AlunoDto
     {

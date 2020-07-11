@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartSchoolVSCode.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController">
+            <summary>
+             Versão 1 do meu controlador de alunos
+            </summary>
+        </member>
+        <member name="F:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController._repository">
+            
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.#ctor(SmartSchoolVSCode.WebAPI.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="repository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.Get">
+            <summary>
+            Metodo resposável por retonar todos os Alunos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.GetById(System.Int32)">
+            <summary>
+            Metodo resposável por retonar um único Alunos
+            Exemplo de chamada passandro o Id por meio da rota 
+            api/aluno/byid/2
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.Post(SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Metodo resposável por incluir os alunos
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.Put(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.Patch(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.AlunoController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController">
+            <summary>
+            Versão 1 do meu controlador de Professores
+            </summary>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.#ctor(SmartSchoolVSCode.WebAPI.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="repository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.Post(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.ProfessorRegisterDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.Put(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.ProfessorRegisterDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.Patch(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.ProfessorRegisterDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V1.Controllers.ProfessorController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto">
+            <summary>
+            Este � o Dto do Aluno para registro
+            </summary>
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto.Id">
+            <summary>
+            Identificador e chave do Banco
+            </summary>        
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto.Matricula">
+            <summary>
+            Chave do Aluno, para outros neg�cios na Institui��o 
+            </summary>
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto.Nome">
+            <summary>
+            Nome do Aluno
+            </summary>
+        </member>
+        <member name="T:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController">
+            <summary>
+            Versão 2 do meu controlador de alunos
+            </summary>
+        </member>
+        <member name="F:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController._repository">
+            
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController.#ctor(SmartSchoolVSCode.WebAPI.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="repository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController.GetById(System.Int32)">
+            <summary>
+            Metodo resposável por retonar um único Alunos
+            Exemplo de chamada passandro o Id por meio da rota 
+            api/aluno/byid/2
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController.Post(SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Metodo resposável por incluir os alunos
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController.Put(System.Int32,SmartSchoolVSCode.WebAPI.V1.Dtos.AlunoRegistrarDto)">
+            <summary>
+            Esse metodo é responsável por editar os alunos
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SmartSchoolVSCode.WebAPI.V2.Controllers.AlunoController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SmartSchoolVSCode.WebAPI.V2.Dtos.AlunoRegistrarDto">
+            <summary>
+            Este � o Dto do Aluno para registro
+            </summary>
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V2.Dtos.AlunoRegistrarDto.Id">
+            <summary>
+            Identificador e chave do Banco
+            </summary>        
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V2.Dtos.AlunoRegistrarDto.Matricula">
+            <summary>
+            Chave do Aluno, para outros neg�cios na Institui��o 
+            </summary>
+        </member>
+        <member name="P:SmartSchoolVSCode.WebAPI.V2.Dtos.AlunoRegistrarDto.Nome">
+            <summary>
+            Nome do Aluno
+            </summary>
+        </member>
+    </members>
+</doc>
